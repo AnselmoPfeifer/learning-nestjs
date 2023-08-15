@@ -1,0 +1,2 @@
+- nest generate module categories
+- nest generate resource categories
