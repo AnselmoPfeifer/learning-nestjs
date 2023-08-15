@@ -1,0 +1,26 @@
+###
+GET http://localhost:3000/api/categories
+
+###
+GET http://localhost:3000/api/categories/2
+
+###
+POST http://localhost:3000/api/categories
+Content-Type: application/json
+
+{
+    "name": "Laptop",
+    "description": "All Laptops"
+}
+
+###
+PATCH http://localhost:3000/api/categories/3
+Content-Type: application/json
+
+{
+    "name": "Laptop",
+    "description": "This is Supper Category Updated"
+}
+
+###
+DELETE http://localhost:3000/api/categories/1
