@@ -9,11 +9,11 @@ Time: 1:09:18
 - Create new Nest Resource: nest generate resource categories
 - Create new Module: nest generate module prisma
 - Create new service: nest generate service prisma/prisma
-
+- Create Videos resources - nest generate resource videos
 ## Database Migration
 
 - npm install @prisma/client
 - npx prisma init
 - npx prisma migrate dev
 - npx prisma studio
-- nest generate module prisma
+
