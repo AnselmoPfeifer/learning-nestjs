@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  database:
+    image: mysql:8.0.30-debian
+    container_name: database
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nestjs
+
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: backend
+      args:
+        - image_base=node:18-slim
+        - database_url="mysql://root:root@database:3306/nestjs"
+    container_name: backend
+    image: backend:latest
+    user: node
+    environment:
+      - http_proxy=http://zscaler.proxy.int.kn:80
+    links:
+      - database:database
+    ports:
+      - 3000:3000
+    entrypoint:
+      - npm
+      - run
+      - start:migrate:prod
